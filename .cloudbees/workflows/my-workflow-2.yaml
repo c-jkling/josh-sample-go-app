@@ -27,9 +27,9 @@ jobs:
         name: Set up docker hub registry
         with:
           registry: index.docker.io
-          username: ${{ vars.QUICKSTART_DOCKER_USERNAME }}
+          username: ${{ vars.QUICKSTART_DOCKER_JOSH }}
           password: ${{ secrets.QUICKSTART_DOCKER_TOKEN }}
       - name: Push image to registry
         uses: https://github.com/cloudbees-io/kaniko@v1
         with:
-            destination: ${{ vars.QUICKSTART_DOCKER_USERNAME }}/my-sample-go-app:1.0.0
+            destination: ${{ vars.QUICKSTART_DOCKER_JOSH }}/my-sample-go-app:1.0.0
