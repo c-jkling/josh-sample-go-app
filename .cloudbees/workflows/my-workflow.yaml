@@ -4,23 +4,6 @@ name: My workflow
 on:
   workflow_dispatch:
 jobs:
-  ci-job:
-    steps:
-      - run: |
-          git config --global --add safe.directory /cloudbees/workspace
-        uses: docker://alpine/git:latest
-      - uses: https://github.com/cloudbees-io/checkout@v1
-        name: checkout
-      - run: |
-          go build -v ./...
-        uses: docker://golang:1.20
-        name: Build Go app
-      - run: |
-          go test -v ./...
-        uses: docker://golang:1.20
-        name: Run tests
-    needs:
-      - check
   check:
     timeout-minutes: 4320
     delegates: cloudbees-io/manual-approval/custom-job.yml@v1
