@@ -23,3 +23,13 @@ jobs:
         name: Run tests
       - name: Scan with SonarQube bundled action
         uses: https://github.com/cloudbees-io/sonarqube-bundled-sast-scan-code@v1
+      - uses: https://github.com/cloudbees-io/configure-oci-credentials@v1
+        name: Set up docker hub registry
+        with:
+          registry: index.docker.io
+          username: ${{ vars.QUICKSTART_DOCKER_USERNAME }}
+          password: ${{ secrets.QUICKSTART_DOCKER_TOKEN }}
+      - name: Push image to registry
+        uses: https://github.com/cloudbees-io/kaniko@v1
+        with:
+            destination: ${{ vars.QUICKSTART_DOCKER_USERNAME }}/my-sample-go-app:1.0.0
