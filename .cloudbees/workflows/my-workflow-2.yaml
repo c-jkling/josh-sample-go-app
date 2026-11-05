@@ -21,3 +21,5 @@ jobs:
           go test -v ./...
         uses: docker://golang:1.20
         name: Run tests
+      - name: Scan with SonarQube bundled action
+        uses: https://github.com/cloudbees-io/sonarqube-bundled-sast-scan-code@v1
