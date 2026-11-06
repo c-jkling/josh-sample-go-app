@@ -3,6 +3,11 @@ kind: workflow
 name: New Workflow
 on:
   workflow_dispatch:
+    inputs:
+      test-input:
+        type: string
+        default: default value goes here
+        required: true
 jobs:
   ci-job:
     steps:
