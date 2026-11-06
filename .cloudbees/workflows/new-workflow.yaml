@@ -4,7 +4,7 @@ name: New Workflow
 on:
   workflow_dispatch:
     inputs:
-      test-input:
+      manifest:
         type: string
         default: default value goes here
         required: true
