@@ -6,6 +6,12 @@ on:
 jobs:
   hello-world:
     steps:
+      - name: Checkout code
+        uses: cloudbees-io/checkout@v1
+      
       - name: Say Hello
         run: echo "Hello, World!"
         uses: docker://alpine:latest
+      
+      - name: SonarQube scan
+        uses: cloudbees-io/sonarqube-bundled-sast-sca-scan@v1
