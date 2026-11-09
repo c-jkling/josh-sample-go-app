@@ -14,4 +14,4 @@ jobs:
         uses: docker://alpine:latest
       
       - name: SonarQube scan
-        uses: cloudbees-io/sonarqube-bundled-sast-sca-scan@v1
+        uses: cloudbees-io/sonarqube-sast-scan-code@v1
